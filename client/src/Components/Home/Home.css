@@ -1,0 +1,14 @@
+.main_container_home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.Initial_Nav{
+    font-size: 1.5rem;
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+}

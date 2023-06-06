@@ -1,0 +1,21 @@
+.main_container_teacher_register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-size:20px;
+}
+.form_container_teacher_registration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    gap:20px;
+   
+}
