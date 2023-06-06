@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const e = require('express');
 const Master = require('../models/Master');
 
 //Attendance Override
@@ -16,7 +17,8 @@ router.post('/attendance', async (req, res) => {
                 const updatedMaster = await Master.deleteOne({});
                 const master = new Master({
                     master_override: existingMaster.master_override,
-                    attendance_override: req.body.attendance_override
+                    attendance_override: req.body.attendance_override,
+                    teacher : req.body.teacher
                 })
                 await master.save();                 
             return res.status(201).json({ message: "Attendance Override Updated Successfully" });
@@ -24,8 +26,8 @@ router.post('/attendance', async (req, res) => {
          else{
              const master = new Master({
                 master_override: false ,
-                attendance_override: req.body.attendance_override
-                
+                attendance_override: req.body.attendance_override,
+                teacher : req.body.teacher                
              });
             
                 await master.save();
@@ -67,7 +69,8 @@ router.post('/master', async (req, res) => {
                 const updatedMaster = await Master.deleteOne({});
                 const master = new Master({
                     master_override: req.body.master_override,
-                    attendance_override: existingMaster.attendance_override
+                    attendance_override: existingMaster.attendance_override,
+                    teacher : existingMaster.teacher
                 })
                 await master.save();                 
             return res.status(201).json({ message: "Master Override Updated Successfully" });
@@ -75,8 +78,8 @@ router.post('/master', async (req, res) => {
          else{
              const master = new Master({
                 master_override: req.body.master_override,
-                attendance_override: false
-                
+                attendance_override: false,
+                teacher : ""                
              });
             
                 await master.save();

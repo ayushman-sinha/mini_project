@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import './Teacher_Dashboard.css';
+import axios from 'axios';
 
 const Teacher_Dashboard = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -15,6 +16,20 @@ const Teacher_Dashboard = () => {
         window.location.href = '/login'
     }
    },[])
+   const handleLogout = async () => {
+    localStorage.clear();
+    localStorage.setItem('loggedIn', false);    
+    try{
+        const res = await axios.post('http://localhost:5000/api/override/attendance', {
+            attendance_override : false,
+            teacher : ''
+        });        
+    }
+    catch(err){
+        console.log(err)
+    }
+    window.location.href = '/login'
+   }
   return (
     <div>
         <h1>Teacher Dashboard</h1>
@@ -25,11 +40,7 @@ const Teacher_Dashboard = () => {
             <li><a href='/take_attendance'>Take Attendance</a></li>
         </ul>
         <div className='logout_button_teacher'>
-            <button onClick={()=>{
-                localStorage.removeItem('token')
-                localStorage.removeItem('user')
-                window.location.href = '/login'
-            } }>Logout</button>
+            <button onClick={handleLogout }>Logout</button>
         </div>
     </div>
   )

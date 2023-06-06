@@ -47,7 +47,8 @@ const Take_Attendance = () => {
             
                 try{
                     const res = await axios.post('http://localhost:5000/api/override/attendance', {
-                        attendance_override : !startAttendance
+                        attendance_override : !startAttendance,
+                        teacher : user.name
                     });
                     setStartAttendance(!startAttendance)
                 }

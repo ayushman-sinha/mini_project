@@ -8,6 +8,10 @@ const MasterSchema = new mongoose.Schema({
     attendance_override :{
         type: Boolean,
         default: false
+    },
+    teacher:{
+        type:String,
+        default:""
     }
 });
 

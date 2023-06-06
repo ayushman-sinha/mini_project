@@ -18,7 +18,8 @@ import Teacher_Dashboard from './Components/Teacher_Dashboard/Teacher_Dashboard'
 import Student_Dashboard from './Components/Student_Dashboard/Student_Dashboard';
 import Coordinate from './Components/Coordinate/Coordinate';
 import Take_Attendance from './Components/Take_Attendance/Take_Attendance';
-
+import Student_Attendance_View from './Components/Student_Attendance_View/Student_Attendance_View';
+import Student_Attendance_Take from './Components/Student_Attendance_Take/Student_Attendance_Take';
 
 const App = () => {
   cors({credentials: true, origin: true});
@@ -34,6 +35,8 @@ const App = () => {
         <Route path="/student_dashboard" element={<Student_Dashboard />} />
         <Route path="/coordinate" element={<Coordinate />} />
         <Route path="/take_attendance" element={<Take_Attendance />} />
+        <Route path="/student_attendance_view" element={<Student_Attendance_View />} />
+        <Route path="/student_attendance_take" element={<Student_Attendance_Take />} />
       </Routes>
     </BrowserRouter>
   )
