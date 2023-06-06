@@ -18,6 +18,16 @@ const Student_Dashboard = () => {
     <div>
         <h1>Student Dashboard</h1>
         <h2>Welcome Student {user.name}</h2>
+        <h3>USN : {user.student_id}</h3>
+        <p></p>
+        <ul>
+            <li><a href='/student_attendance_view'>View Attendance</a></li>
+            <li>
+                <a href='/student_attendance_take'>Take Attendance</a>
+            </li>
+        </ul>
+        
+
         <div className='logout_button_student'>
             <button onClick={()=>{
                 localStorage.removeItem('token')

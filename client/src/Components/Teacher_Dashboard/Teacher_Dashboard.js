@@ -20,9 +20,9 @@ const Teacher_Dashboard = () => {
         <h1>Teacher Dashboard</h1>
         <h2>Welcome Teacher {user.name}</h2>
         <ul>
-            <li>Add/Edit Co-ordinates</li>
+            <li><a href='/coordinate'>Add/Update Coordinates</a></li>
             <li>View Attendance</li>
-            <li>Take Attendance</li>
+            <li><a href='/take_attendance'>Take Attendance</a></li>
         </ul>
         <div className='logout_button_teacher'>
             <button onClick={()=>{

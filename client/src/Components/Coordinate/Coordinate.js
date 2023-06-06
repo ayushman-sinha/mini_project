@@ -35,11 +35,22 @@ const Coordinate = () => {
     }
     const submitButton = async(e) => {
             e.preventDefault()
-            const coordinates = {
-                
+            if(coordinates.length !== 4){
+                alert("Please enter all the coordinates")
+                return
+            }
+            let arr = []
+            for(let i=0;i<4;i++){
+                let tmp={
+                    latitude:coordinates[i].latitude,
+                    longitude:coordinates[i].longitude
+                }
+                arr.push(tmp)
             }
             try{
-                const res = await axios.post('http://localhost:5000/api/coordinate/add',coordinates)
+                const res = await axios.post('http://localhost:5000/api/coordinate/add',arr)
+                alert('Coordinates Added Successfully')
+                window.location.href = '/teacher_dashboard'
                 
             }
             catch(err){
@@ -74,6 +85,7 @@ const Coordinate = () => {
             <p></p>
             <button type='reset' onClick={resetButton}>Reset</button>
             <button type='submit' onClick={submitButton}>Submit</button>
+            
         </div>
     </div>
   )

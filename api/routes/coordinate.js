@@ -5,19 +5,31 @@ const Coordinate = require('../models/Coordinate');
 router.post('/add', async (req, res) => {
     try{
         
-        const four_corners = req.body.coordinate;
+        const four_corners = req.body;
         console.log(four_corners);
         if(!four_corners){
             return res.status(422).json({ error: "Please fill all the fields" });
         }
-        const coordinate = new Coordinate({ four_corners });
+        
        //Overwrite if already present
-        
-        await coordinate.save();
-        
+       const existingCoordinate = await Coordinate.findOne({ four_corners });
+            if(existingCoordinate){
+                const updatedCoordinate = await Coordinate.updateOne({ four_corners });
+            return res.status(201).json({ message: "Coordinate Updated Successfully" });
+         }
+         else{
+             const coordinate = new Coordinate({
+                four_corners
+             });
+                const savedCoordinate = await coordinate.save();
 
-        res.status(201).json({ message: "Coordinate Added Successfully" });
+         }
+        
+        
+        return res.status(201).json({ message: "Coordinate Added Successfully" });
 
+       
+        
     }
     catch(err){
         res.status(500).json({ error: "Failed to add coordinate" });
