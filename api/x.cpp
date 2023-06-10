@@ -1,41 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
+int mod=1e9+7;
+
+int  calc(vector<int> &v,int n,int x){
+    if(x==0) return 0;
+    if(x<0) return 1e9;
+    if(n<0) return 1e9;
+    return min(calc(v,n-1,x),1+calc(v,n,x-v[n]));
+
+    
+   
+}
 int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        vector<vector<int>>ar;
-        map<int,vector<int>>m;
-        for(int i=0;i<n;i++){
-            int Ai,Bi;
-            cin>>Ai>>Bi;
-             m[Ai].push_back(Bi);
-        }
-        long long ans=0LL;
-        for(auto &i:m)
-            sort(i.second.begin(),i.second.end(),greater<int>());
-        
-        for(int i=n;i>=1;i--){
-            if(!m.count(i))
-                continue;
-            for(int j=0;j<m[i].size();j++){
-                if(j>=i) break;
-                ans+=m[i][j];
+    int n,x;
+    cin>>n>>x;
+    vector<int> v(n);
+    for(int i=0;i<n;i++) cin>>v[i];
+    sort(v.begin(),v.end());
+    vector<int>dp(x+1,1e9);
+    int ans=0;
+    dp[0]=0;
+    for(int i=1;i<=x;i++){
+        for(int j=0;j<n;j++){
+            if(i-v[j]>=0){
+                dp[i]=min(dp[i],1+dp[i-v[j]]);
             }
         }
-        
-
-        //cout<<"ans:"<<ans<<endl;
-        cout<<ans<<endl;
-
-
-        
-       
     }
-
+    if(dp[x]==1e9) cout<<-1<<endl;
+    else cout<<dp[x]<<endl;
 }
+//6 -> 32
 
 /*
 5

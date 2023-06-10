@@ -7,6 +7,8 @@ const Student_Attendance_Take = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
     const [startAttendance, setStartAttendance] = useState(false);
+    const [subject_list,setSubject_list] = useState([])
+     
     useEffect(() => {
         const token = localStorage.getItem('token');
         if(token){
@@ -18,6 +20,7 @@ const Student_Attendance_Take = () => {
             window.location.href = '/login'
         }
     },[]);
+    
     useEffect(() => {
         const getFlag = async () => {
             const res = await axios.get('http://localhost:5000/api/override/getOverride');
@@ -40,10 +43,13 @@ const Student_Attendance_Take = () => {
         }
         getFlag();
     },[]);
+    const handleAttendance = async () => {
+
+    }
   return (
     <div>
         <h1>Take Attendance</h1>
-        {startAttendance&&<button onClick={()=>{} }>Take Attendance</button>}
+        {startAttendance&&<button onClick={()=>handleAttendance}>Take Attendance</button>}
     </div>
   )
 }
