@@ -25,6 +25,7 @@ app.use('/api/subject', require('./routes/subject'));
 app.use('/api/coordinate', require('./routes/coordinate'));
 app.use('/api/override', require('./routes/override'));
 app.use('/api/student', require('./routes/studentAttendance'));
+app.use('/api/teacher', require('./routes/teacherAttendance'));
 
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
