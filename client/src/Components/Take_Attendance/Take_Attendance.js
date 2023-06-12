@@ -11,6 +11,7 @@ const Take_Attendance = () => {
         const getStatus = async () => {
             try{
                 const res = await axios.get('http://localhost:5000/api/override/getOverride');    
+               
                 console.log(res.data.master.attendance_override)            
                 setStartAttendance(res.data.master.attendance_override)
             }
@@ -46,9 +47,11 @@ const Take_Attendance = () => {
             e.preventDefault();
             
                 try{
+                    const sub = !startAttendance? user.subject_id : ''
                     const res = await axios.post('http://localhost:5000/api/override/attendance', {
                         attendance_override : !startAttendance,
-                        teacher : user.name
+                        teacher : sub,
+                        
                     });
                     setStartAttendance(!startAttendance)
                 }

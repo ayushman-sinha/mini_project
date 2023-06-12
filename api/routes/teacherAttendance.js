@@ -24,4 +24,6 @@ router.get('/viewAttendance', async (req, res) => {
     }
 });
 
+
+
 module.exports = router;

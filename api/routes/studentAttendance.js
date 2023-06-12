@@ -59,22 +59,27 @@ router.post('/takeAttendance', async (req, res) => {
 });  
 
 //View Attendance
-router.get('/viewAttendance', async (req, res) => {
+router.post('/viewAttendance', async (req, res) => {
      try{
-        const { student_id } = req.body;
-        const response1 = await Attendance.find();
-        const result=[]
+        //console.log(req.body)
+        const { student_id,attendance_date } = req.body;
+       
+        const date1 = new Date(attendance_date).toLocaleDateString();
+        console.log(date1)
+        const response1 = await Attendance.find({ attendance_date: date1 });
+        const result=[]       
+        console.log(response1)
         for(let i=0;i<response1.length;i++){
             for(let j=0;j<response1[i].subject_list.length;j++){
                 for(let k=0;k<response1[i].subject_list[j].student_list.length;k++){
                     if(response1[i].subject_list[j].student_list[k]===student_id){
-                        result.push({attendance_date: response1[i].attendance_date, subject_id: response1[i].subject_list[j].subject_id});
+                        result.push({subject_id: response1[i].subject_list[j].subject_id, attendance_date: response1[i].attendance_date})
                     }
                 }
             }
         }
         console.log(result);
-        return res.status(200).json({ result });
+        return res.status(200).json({ result});
      }
      catch(err){
         res.status(500).json({ error: "Failed to view attendance" });

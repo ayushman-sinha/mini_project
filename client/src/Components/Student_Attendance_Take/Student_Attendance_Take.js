@@ -8,6 +8,7 @@ const Student_Attendance_Take = () => {
     const [user, setUser] = useState({});
     const [startAttendance, setStartAttendance] = useState(false);
     const [subject_list,setSubject_list] = useState([])
+    const [teacher,setTeacher] = useState('')
      
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -37,6 +38,7 @@ const Student_Attendance_Take = () => {
             }
             else if(res.data.master.attendance_override===true&&res.data.master.master_override===false){
                 setStartAttendance(true)  
+                setTeacher(res.data.master.teacher)
                 alert("Attendance has started")    
                 return;            
             }
@@ -44,12 +46,24 @@ const Student_Attendance_Take = () => {
         getFlag();
     },[]);
     const handleAttendance = async () => {
+        console.log("user.student_id")
+        try{
+            const res = await axios.post('http://localhost:5000/api/student/takeAttendance', {
+                student_id : user.student_id,
+                subject_id : teacher,
 
+            });
+            alert("Attendance Taken")
+            window.location.href = '/student_dashboard'  
+        }
+        catch(err){
+            console.log(err)
+        }
     }
   return (
     <div>
         <h1>Take Attendance</h1>
-        {startAttendance&&<button onClick={()=>handleAttendance}>Take Attendance</button>}
+        {startAttendance&&<button onClick={handleAttendance}>Take Attendance</button>}
     </div>
   )
 }

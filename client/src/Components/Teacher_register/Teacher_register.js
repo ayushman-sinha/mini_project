@@ -45,7 +45,7 @@ const Teacher_register = () => {
             <label for="subject">Subject</label>
             {<select id="subject" name="subject" onChange={(e)=>setSubject(e.target.value)}>
                 {subject_list.map((subject)=>{ 
-                    return <option value={subject._id} key={subject._id}>{subject.name}</option>
+                    return <option value={subject.subject_id} key={subject._id}>{subject.name}</option>
                 })}
              </select>}
             <label for="email">Email</label>
