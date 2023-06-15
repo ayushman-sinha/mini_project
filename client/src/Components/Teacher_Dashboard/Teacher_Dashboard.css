@@ -1,0 +1,52 @@
+.teacher-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background-color: #f8f8f8;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.dashboard-menu {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.dashboard-menu li {
+  margin-bottom: 8px;
+}
+
+.dashboard-menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dashboard-menu a:hover {
+  color: #555;
+}
+
+.logout-button {
+  text-align: center;
+}
+
+.logout-button button {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-button button:hover {
+  background-color: #555;
+}
