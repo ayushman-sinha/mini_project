@@ -1,14 +1,51 @@
-.main_container_home{
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Inter:wght@400;500&family=Nunito&family=Raleway:wght@200;300;400&family=Source+Code+Pro:wght@300&display=swap');
+body{
+    margin: 0;
+}
+.main_container_home {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f5f5f5;
-}
-.Initial_Nav{
-    font-size: 1.5rem;
+    width: 100vw;
+    background-color: #000000;
+  }
+  
+  .Initial_Nav {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
     display: flex;
-    gap:20px;
+    gap: 80px;
     flex-direction: column;
-}
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .Initial_Nav li {
+    padding: 25px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .Initial_Nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .Initial_Nav li:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .Initial_Nav li:hover a {
+    color: #555555;
+  }
+  

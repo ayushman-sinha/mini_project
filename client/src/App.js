@@ -20,6 +20,7 @@ import Coordinate from './Components/Coordinate/Coordinate';
 import Take_Attendance from './Components/Take_Attendance/Take_Attendance';
 import Student_Attendance_View from './Components/Student_Attendance_View/Student_Attendance_View';
 import Student_Attendance_Take from './Components/Student_Attendance_Take/Student_Attendance_Take';
+import Teacher_Attendance_View from './Components/Teacher_Attendance_View/Teacher_Attendance_View';
 
 const App = () => {
   cors({credentials: true, origin: true});
@@ -37,6 +38,8 @@ const App = () => {
         <Route path="/take_attendance" element={<Take_Attendance />} />
         <Route path="/student_attendance_view" element={<Student_Attendance_View />} />
         <Route path="/student_attendance_take" element={<Student_Attendance_Take />} />
+        <Route path="/teacher_attendance_view" element={<Teacher_Attendance_View />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   )

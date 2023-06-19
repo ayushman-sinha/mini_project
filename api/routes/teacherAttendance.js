@@ -3,19 +3,23 @@ const Student = require('../models/Student');
 const Attendance = require('../models/Attendance');
 const Teacher = require('../models/Teacher');
 
-//View Attendance for student
-router.get('/viewAttendance', async (req, res) => {
-    try{
-        const response = await Attendance.find();
-        let {teacher_id,subject_id} = req.body;
+//View Attendance for teacher
+router.post('/viewAttendanceTeacher', async (req, res) => {
+    try{        
+        let {teacher_id,subject_id,attendance_date} = req.body;
+        const date1 = new Date(attendance_date).toLocaleDateString();
+
+        
+        const response = await Attendance.find({ attendance_date:date1 });
+        console.log(response);
         let result=[];
-        for(let i=0;i<response.length;i++){
-            for(let j=0;j<response[i].subject_list.length;j++){
-                if(response[i].subject_list[j].subject_id===subject_id){
-                    result.push({attendance_date: response[i].attendance_date, student_list: response[i].subject_list[j].student_list});
+       
+            for(let i=0;i<response[0].subject_list.length;i++){
+                if(response[0].subject_list[i].subject_id===subject_id){
+                    result.push({  attendance_date : date1, student_id : response[0].subject_list[i].student_list});
                 }
             }
-        }
+        
         console.log(result);
         return res.status(200).json({ result });
 
