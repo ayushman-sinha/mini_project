@@ -1,0 +1,24 @@
+.student-attendance-take {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background-color: #f8f8f8;
+}
+
+.student-attendance-take h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.student-attendance-take .attendance-button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.student-attendance-take .attendance-button:hover {
+  background-color: #555;
+}

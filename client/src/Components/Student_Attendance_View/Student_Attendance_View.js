@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+import './Student_Attendance_View.css';
 
+// import './Student_Attendance_View.css'
 const Student_Attendance_View = () => {
   const [isLoggedin, setIsLoggedin] = useState(false)
   const [user, setUser] = useState({})

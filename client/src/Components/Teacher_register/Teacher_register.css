@@ -1,21 +1,48 @@
-.main_container_teacher_register{
+/* Teacher_register.css */
+
+.main_container_teacher_register {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-    font-size:20px;
-}
-.form_container_teacher_registration{
+    padding: 20px;
+  }
+  
+  .form_container_teacher_registration {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    gap:20px;
-   
-}
+    width: 300px; /* Set the desired width for the form container */
+  }
+  
+  .form_container_teacher_registration h1 {
+    margin-bottom: 20px;
+  }
+  
+  .form_container_teacher_registration label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form_container_teacher_registration input[type="text"],
+  .form_container_teacher_registration input[type="password"],
+  .form_container_teacher_registration select {
+    width: 100%; /* Make all input fields and select dropdowns take up the full width of the form container */
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .form_container_teacher_registration input[type="submit"] {
+    width: 100%; /* Make the submit button take up the full width of the form container */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    top:40px;
+    position: relative;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form_container_teacher_registration input[type="submit"]:hover {
+    background-color: #555;
+  }
+  
