@@ -1,0 +1,59 @@
+.student-attendance-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .date-label {
+    margin-bottom: 10px;
+  }
+  
+  .date-input {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .no-attendance {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .attendance-table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .attendance-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .attendance-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .attendance-table tr:hover {
+    background-color: #ddd;
+  }
+  

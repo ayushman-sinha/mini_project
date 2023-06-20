@@ -1,4 +1,6 @@
 import {useState,useEffect} from 'react'
+import axios from 'axios'
+import './Student_Dashboard.css'
 
 const Student_Dashboard = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -15,14 +17,14 @@ const Student_Dashboard = () => {
         }
     },[])
   return (
-    <div>
+    <div className='student_dashboard_container'>
         <h1>Student Dashboard</h1>
         <h2>Welcome Student {user.name}</h2>
         <h3>USN : {user.student_id}</h3>
         <p></p>
-        <ul>
-            <li><a href='/student_attendance_view'>View Attendance</a></li>
-            <li>
+        <ul className='list_student_dashboard'>
+            <li className='li_element_student_dashboard'><a href='/student_attendance_view'>View Attendance</a></li>
+            <li className='li_element_student_dashboard'>
                 <a href='/student_attendance_take'>Take Attendance</a>
             </li>
         </ul>

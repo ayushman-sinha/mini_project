@@ -1,0 +1,79 @@
+.teacher_attendance_container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  .star_stop_button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .star_stop_button:hover {
+    background-color: #45a049;
+  }
+  
+  .teacher_take_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .teacher_heading_take {
+    background-color: #f2f2f2;
+  }
+  
+  .teacher_row_take:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .teacher_row_take th,
+  .teacher_row_take td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .teacher_row_take th {
+    text-align: left;
+  }
+  
+  .teacher_row_take:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .teacher_row_take td:first-child {
+    font-weight: bold;
+  }
+  
+  .teacher_row_take td:nth-child(2) {
+    color: #4caf50;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  .teacher_attendance_button_back{
+    width:80px;
+    border-radius: 12px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .teacher_attendance_button_back:hover {
+    background-color: #4d0606;
+  }

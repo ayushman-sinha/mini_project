@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+import './Student_Attendance_View.css'
 
 const Student_Attendance_View = () => {
   const [isLoggedin, setIsLoggedin] = useState(false)
@@ -37,38 +38,45 @@ const Student_Attendance_View = () => {
   }
 
   return (
-    <div>
-      <div>Seletct Date : </div>
-      <input type="date"  value={attendanceDate} onChange={(e)=>{ console.log(e.target.value);setAttendanceDate(e.target.value)}}></input>
-      <button onClick={handleSubmit}>Submit</button>
-      <p></p>
-      {attendance.length===0 ? <div>No Attendance Found</div> : 
-        <div>        
-          <table>
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Date</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {attendance.map((item, index) => {              
-                return (
-                  <tr key={index}>
-                    <td>{item.subject_id}</td>
-                    <td>{item.attendance_date}</td>
-                    <td>Present</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-      }
-      
-    </div>
-      
+    <div className='student-attendance-view-container'>
+    <div className='date-label'>Select Date:</div>
+    <input
+      type='date'
+      className='date-input'
+      value={attendanceDate}
+      onChange={(e) => setAttendanceDate(e.target.value)}
+    />
+    <button className='submit-button' onClick={handleSubmit}>
+      Submit
+    </button>
+    <p></p>
+    {attendance.length === 0 ? (
+      <div className='no-attendance'>No Attendance Found</div>
+    ) : (
+      <div>
+        <table className='attendance-table'>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {attendance.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>{item.subject_id}</td>
+                  <td>{item.attendance_date}</td>
+                  <td>Present</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    )}
+  </div>
   )
 }
 

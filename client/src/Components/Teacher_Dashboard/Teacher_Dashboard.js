@@ -31,7 +31,7 @@ const Teacher_Dashboard = () => {
     window.location.href = '/login'
    }
   return (
-    <div>
+    <div className='container'>
         <h1>Teacher Dashboard</h1>
         <h2>Welcome Teacher {user.name}</h2>
         <ul>
@@ -40,7 +40,7 @@ const Teacher_Dashboard = () => {
             <li><a href='/take_attendance'>Take Attendance</a></li>
         </ul>
         <div className='logout_button_teacher'>
-            <button onClick={handleLogout }>Logout</button>
+            <button onClick={handleLogout } className='logout-button'>Logout</button>
         </div>
     </div>
   )

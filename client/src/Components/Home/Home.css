@@ -9,15 +9,15 @@ body{
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #000000;
+    background-color: #ffffff;
   }
   
   .Initial_Nav {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
-    color: #ffffff;
+   
     display: flex;
-    gap: 80px;
+   
     flex-direction: column;
     list-style-type: none;
     padding: 0;
@@ -26,11 +26,7 @@ body{
   .Initial_Nav li {
     padding: 25px;
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+   
     transition: background-color 0.3s ease;
     border-radius: 10px;
   }
@@ -44,8 +40,5 @@ body{
   .Initial_Nav li:hover {
     background-color: #f2f2f2;
   }
-  
-  .Initial_Nav li:hover a {
-    color: #555555;
-  }
+
   

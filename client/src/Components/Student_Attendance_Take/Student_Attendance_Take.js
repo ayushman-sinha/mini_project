@@ -3,6 +3,7 @@ import axios from 'axios'
 import './Student_Attendance_Take.css'
 
 
+
 const Student_Attendance_Take = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
@@ -60,12 +61,17 @@ const Student_Attendance_Take = () => {
             console.log(err)
         }
     }
-  return (
-    <div>
-        <h1>Take Attendance</h1>
-        {startAttendance&&<button onClick={handleAttendance}>Take Attendance</button>}
-    </div>
-  )
+    return (
+        <div className='take-attendance-container'>
+          <h1>Take Attendance</h1>
+          {startAttendance && (
+            <button className='take-attendance-button' onClick={handleAttendance}>
+              Take Attendance
+            </button>
+          )}
+        </div>
+      );
+      
 }
 
 export default Student_Attendance_Take
