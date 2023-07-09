@@ -7,11 +7,11 @@ router.post('/takeAttendance', async (req, res) => {
     
     let date1 = new Date().toLocaleDateString();
     const { student_id, subject_id } = req.body;
-    console.log(date1);
+    //console.log(req.body);
     
     try{
         const response= await  Attendance.findOne({ attendance_date: date1 });
-        
+       // console.log(response);
         if(response){
             //Check if student already taken attendance            
             for( let i=0;i<response.subject_list.length;i++){
@@ -30,7 +30,7 @@ router.post('/takeAttendance', async (req, res) => {
             for(let i=0;i<x.length;i++){
                 if(x[i].subject_id===subject_id){
                     x[i].student_list.push(student_id);
-                    flag=1;
+                    flag=1;                    
                     break;
                 }
             }
@@ -38,7 +38,7 @@ router.post('/takeAttendance', async (req, res) => {
                 x.push({subject_id: subject_id, student_list: [student_id]});
             }
             //console.log(x);
-            await Attendance.findOneAndUpdate({ attendance_date: date1 }, { subject_list: x });
+           await Attendance.updateOne({ attendance_date: date1 }, { subject_list: x });
             return res.status(200).json({ message: "Attendance Taken" });
         }
         else{           
@@ -46,9 +46,10 @@ router.post('/takeAttendance', async (req, res) => {
            
             let x=[{subject_id: subject_id, student_list: [student_id]}];
            
-            console.log(x);
+            //console.log("Success",x);
 
             const attendance = new Attendance({ attendance_date: date1, subject_list: x});
+            console.log(attendance);
             await attendance.save();
             return res.status(200).json({ message: "Attendance Taken" });
         }

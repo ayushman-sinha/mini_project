@@ -5,6 +5,10 @@
         "unordered_map": "cpp",
         "vector": "cpp",
         "xhash": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "xutility": "cpp",
+        "functional": "cpp"
     }
 }

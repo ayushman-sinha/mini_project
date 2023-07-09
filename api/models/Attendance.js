@@ -8,8 +8,7 @@ const AttendanceSchema = new mongoose.Schema({
     },
     subject_list: {
         type: Array,
-        required: true,
-        unique: true,
+        required: true,        
     }
 })
 

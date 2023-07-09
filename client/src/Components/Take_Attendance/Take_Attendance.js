@@ -67,7 +67,7 @@ const Take_Attendance = () => {
                 getAttendance()
             }
         }, 10000);
-    },[])
+    },[startAttendance])
     const handleChanges = async (e) => {
            
             e.preventDefault();
